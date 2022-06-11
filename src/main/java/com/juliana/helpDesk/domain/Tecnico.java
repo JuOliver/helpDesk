@@ -6,12 +6,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juliana.helpDesk.domain.enums.Perfil;
 
 @Entity
 public class Tecnico extends Pessoa {
 	private static final long serialVersionUID = 1L;	
 	
+	@JsonIgnore  // ignora o campo de lista e tras somente as informações do tecnico 
 	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
